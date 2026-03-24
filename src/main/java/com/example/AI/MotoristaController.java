@@ -40,6 +40,7 @@ public class MotoristaController {
     }
 
     @DeleteMapping("/motorista/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteMotorista(@PathVariable String id) {
         motoristaService.deletarMotorista(id);
     }

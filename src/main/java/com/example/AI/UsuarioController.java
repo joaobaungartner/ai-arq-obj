@@ -40,6 +40,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/usuario/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteUsuario(@PathVariable String id) {
         usuarioService.deletarUsuario(id);
     }

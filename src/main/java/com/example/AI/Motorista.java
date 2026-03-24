@@ -7,9 +7,9 @@ public class Motorista {
     private String email;
     private String placaCarro;
     private String cpf;
+    private boolean deleted;
 
     public Motorista() {
-
     }
 
     public Motorista(String id, String nome, String email, String placaCarro, String cpf) {
@@ -18,20 +18,54 @@ public class Motorista {
         this.email = email;
         this.placaCarro = placaCarro;
         this.cpf = cpf;
+        this.deleted = false;
     }
 
-    public String getId() {return id;}
-    public void setId(String id) {this.id = id;}
+    public String getId() {
+        return id;
+    }
 
-    public String getNome() {return nome;}
-    public void setNome(String nome) {this.nome = nome;}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getEmail() {return email;}
-    public void setEmail(String email) {this.email = email;}
+    public String getNome() {
+        return nome;
+    }
 
-    public String getPlacaCarro() {return placaCarro;}
-    public void setPlacaCarro(String placaCarro) {this.placaCarro = placaCarro;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public String getCpf() {return cpf;}
-    public void setCpf(String cpf) {this.cpf = cpf;}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPlacaCarro() {
+        return placaCarro;
+    }
+
+    public void setPlacaCarro(String placaCarro) {
+        this.placaCarro = placaCarro;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 }

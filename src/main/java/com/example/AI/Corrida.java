@@ -8,6 +8,7 @@ public class Corrida {
     private Date data;
     private Usuario usuario;
     private Motorista motorista;
+    private boolean deleted;
 
     public Corrida() {
     }
@@ -17,17 +18,46 @@ public class Corrida {
         this.data = data;
         this.usuario = usuario;
         this.motorista = motorista;
+        this.deleted = false;
     }
 
-    public String getId() {return id;}
-    public void setId(String id) {this.id = id;}
+    public String getId() {
+        return id;
+    }
 
-    public Date getData() {return data;}
-    public void setData(Date data) {this.data = data;}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public Usuario getUsuario() {return usuario;}
-    public void setUsuario(Usuario usuario) {this.usuario = usuario;}
+    public Date getData() {
+        return data;
+    }
 
-    public Motorista getMotorista() {return motorista;}
-    public void setMotorista(Motorista motorista) {this.motorista = motorista;}
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
 }

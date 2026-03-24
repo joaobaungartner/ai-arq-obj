@@ -3,6 +3,7 @@ package com.example.AI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
 
@@ -24,14 +25,15 @@ public class CorridaController {
 
     @PostMapping("/corrida")
     @ResponseStatus(HttpStatus.CREATED)
-    public Corrida postCorrida(@RequestBody Corrida corrida, @RequestHeader("X-USER-ID") String usuerioId) {
-        return corridaService.cadastrarCorrida(corrida);
+    public Corrida postCorrida(@RequestBody Corrida corrida,
+                               @RequestHeader("X-USER-ID") String usuarioId) {
+        return corridaService.cadastrarCorrida(corrida, usuarioId);
     }
 
     @PutMapping("/corrida/{id}")
     public Corrida putCorrida(@PathVariable String id, @RequestBody Corrida corrida) {
         if (corrida.getUsuario() == null || corrida.getMotorista() == null) {
-            throw new RuntimeException("Usuário e motorista são obrigatórios");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário e motorista são obrigatórios");
         }
 
         return corridaService.atualizarCorrida(
@@ -43,6 +45,7 @@ public class CorridaController {
     }
 
     @DeleteMapping("/corrida/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCorrida(@PathVariable String id) {
         corridaService.deletarCorrida(id);
     }
